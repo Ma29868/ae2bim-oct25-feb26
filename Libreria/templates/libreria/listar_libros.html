@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Libros</title>
+
+    <link rel ="stylesheet" href="{% static 'libreria/css/estilos.css' %}">
+
+</head>
+<body>
+
+<h1>Libros</h1>
+
+<a href="{% url 'home' %}">🏠 Volver al inicio</a>
+<br><br>
+
+<a href="{% url 'crear_libro' %}">Crear nuevo</a>
+
+<ul>
+{% for l in libros %}
+    <li>
+        {{ l.nombre_libro }} - {{ l.autor_principal }} - {{ l.genero_literario }} - {{ l.precio_venta }} - {{ l.numero_paginas }}
+        <a href="{% url 'editar_libro' l.id %}">Editar</a>
+    </li>
+{% empty %}
+    <li>No hay libros</li>
+{% endfor %}
+</ul>
+
+</body>
+</html>

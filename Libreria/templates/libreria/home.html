@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>INICIO</title>
+
+    <link rel ="stylesheet" href="{% static 'libreria/css/estilos.css' %}">
+
+</head>
+<body>
+
+    <H1>SISTEMA DE LIBRERIAS</H1>
+
+    <h4>Actividad Experimental B2</h4>
+
+<!-- MENÚ GLOBAL -->
+<nav>
+    <a href="{% url 'home' %}">🏠 Inicio</a> |
+    <a href="{% url 'admin:index' %}">🏠 Administración</a> |   
+    <a href="{% url 'listar_librerias' %}">📚 Librerías</a> |
+    <a href="{% url 'listar_empleados' %}">👤 Empleados</a> |
+    <a href="{% url 'listar_libros' %}">📖 Libros</a>
+</nav>
+
+<hr>
+
+<!-- CONTENIDO DE CADA VISTA -->
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

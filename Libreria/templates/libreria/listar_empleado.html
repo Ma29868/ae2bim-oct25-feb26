@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listado de Empleados</title>
+
+    <link rel ="stylesheet" href="{% static 'libreria/css/estilos.css' %}">
+
+</head>
+<body>
+<h1>Empleados</h1>
+
+<a href="{% url 'home' %}">🏠 Volver al inicio</a>
+<br><br>
+
+<a href="{% url 'crear_empleado' %}">Crear nuevo empleado</a>
+
+<ul>
+{% for e in empleados %}
+    <li>
+        {{ e.nombre_completo }} - {{ e.cargo_empleado }} - {{ e.salario_mensual }} - {{ e.libreria.nombre_libreria }}
+        <a href="{% url 'editar_empleado' e.id %}">Editar</a>
+    </li>
+{% empty %}
+    <li>No hay empleados</li>
+{% endfor %}
+</ul>
+
+
+</body>
+</html>
